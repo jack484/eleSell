@@ -31,10 +31,12 @@
       <img :src="seller.avatar" width="100%" height="100%">
     </div>
     <div v-show="showDetail" class="showDetail" translate="fade">
-      <div class="detail-wrapper clearfix">
+      <div class="detail-wrapper">
         <div class="detail-main">
           <h1 class="seller-name">{{seller.name}}</h1>
-          <div class="star-wrapper"></div>
+          <div class="star-wrapper">
+            <star class="" :size="48" :score="seller.score"></star>
+          </div>
           <div class="title">
             <div class="line"></div>
             <div class="text">优惠信息</div>
@@ -63,6 +65,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import star from '../star/star'
   export default {
     props: {
       seller: {
@@ -83,6 +86,9 @@
       hide() {
         this.showDetail = false
       }
+    },
+    components: {
+      'star': star
     }
   }
 </script>
@@ -230,10 +236,9 @@
             font-weight: 700
             color:rgb(255,255,255)
           .star-wrapper
-            height:24px
-            width: 100px
-            border:1px solid yellow
-            margin:16px auto 16px auto
+            margin-top: 18px
+            padding: 2px 0
+            text-align: center
           .title
             display:flex
             justify-content:center
