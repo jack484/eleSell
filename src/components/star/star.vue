@@ -47,6 +47,7 @@
   @import "../../common/stylus/mixin"
   .star
     font-size: 0
+    color:white
     .star-item
       display: inline-block
       background-repeat: no-repeat
