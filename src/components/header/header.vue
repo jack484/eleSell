@@ -237,6 +237,7 @@
             color:rgb(255,255,255)
           .star-wrapper
             margin-top: 18px
+            margin-bottom:18px
             padding: 2px 0
             text-align: center
           .title

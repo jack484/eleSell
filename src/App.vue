@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="content"></div>
-    <router-view :seller="seller" keep-alive></router-view>
+    <router-view :seller="seller"  keep-alive></router-view>
   </div>
 </template>
 
