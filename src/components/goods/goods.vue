@@ -29,19 +29,24 @@
                   <span class="now">${{food.price}}</span>
                   <span class="old" v-show="food.oldPrice">${{food.oldPrice}}</span>
                 </div>
+                <div class="control-wrapper">
+                  <carcontrol :food="food"></carcontrol>
+                </div>
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <shopcart></shopcart>
+    <shopcart :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></shopcart>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
   import shopcart from '../shopcart/shopcart'
+  import carcontrol from '../cartcontrol/cartcontrol'
+
   const ERR_OK = 'OK'
 
   export default {
@@ -91,6 +96,7 @@
           click: true
         })
         this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+          click: true,
           probeType: 3
         })
         // 监听滚动位置
@@ -111,7 +117,8 @@
       }
     },
     components: {
-      shopcart
+      shopcart,
+      carcontrol
     }
   }
 </script>
@@ -181,6 +188,7 @@
       .food-item
         display:flex
         margin:18px
+        position: relative
         .icon
           width: 57px
           height:57px
@@ -189,9 +197,11 @@
         .content
           flex:1
           .name
-            font-size: 14px
-            color:rgb(7,17,27)
-            line-height:14px
+            margin: 2px 0 8px;
+            height: 14px;
+            line-height: 14px;
+            font-size: 14px;
+            color: #07111b;
           .desc,.extra
             font-size: 10px
             line-height: 10px
@@ -211,4 +221,10 @@
               text-decoration: line-through
               font-size: 10px
               color: rgb(147, 153, 159)
+          .control-wrapper
+            position:absolute
+            right: 0
+            bottom: -7px
+            display:inline-block
+
 </style>
